@@ -1,0 +1,5 @@
+This directory is a mirror of generated HTML docs for LLVM
+using the Furo theme for prototyping purposes.
+
+Sources are included in here to attribute to the original
+LLVM sources.
