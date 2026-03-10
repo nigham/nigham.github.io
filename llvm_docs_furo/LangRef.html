@@ -1,16 +1,17 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="libFuzzer – a library for coverage-guided fuzz testing." href="LibFuzzer.html" /><link rel="prev" title="LLVM Interface Export Annotations" href="InterfaceExportAnnotations.html" />
-        <link rel="prefetch" href="_static/LLVMWyvernSmall.png" as="image" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="libFuzzer – a library for coverage-guided fuzz testing." href="LibFuzzer.html"><link rel="prev" title="LLVM Interface Export Annotations" href="InterfaceExportAnnotations.html">
+        <link rel="prefetch" href="_static/LLVMWyvernSmall.png" as="image">
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>LLVM Language Reference Manual - LLVM</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=710ac571" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=4db3a74f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=99069b78" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b763c3f9" />
     
     
 
@@ -23,14 +24,14 @@
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -145,14 +146,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -162,8 +159,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -171,8 +167,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -180,8 +175,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -206,15 +200,15 @@
 <li class="toctree-l1"><a class="reference internal" href="Lexicon.html">The LLVM Lexicon</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStartedTutorials.html">Getting Started/Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting Started/Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingStartedTutorials.html">Getting Started/Tutorials</a><input aria-label="Toggle navigation of Getting Started/Tutorials" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="CompilerWriterInfo.html">Architecture &amp; Platform Information for Compiler Writers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Frontend/PerformanceTips.html">Performance Tips for Frontend Authors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GettingStarted.html">Getting Started with the LLVM System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GettingStartedVS.html">Getting Started with the LLVM System using Microsoft Visual Studio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProgrammersManual.html">LLVM Programmer’s Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DebuggingLLVM.html">Debugging LLVM</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tutorial/index.html">LLVM Tutorial: Table of Contents</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of LLVM Tutorial: Table of Contents</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="tutorial/MyFirstLanguageFrontend/index.html">My First Language Frontend with LLVM Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of My First Language Frontend with LLVM Tutorial</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorial/index.html">LLVM Tutorial: Table of Contents</a><input aria-label="Toggle navigation of LLVM Tutorial: Table of Contents" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tutorial/MyFirstLanguageFrontend/index.html">My First Language Frontend with LLVM Tutorial</a><input aria-label="Toggle navigation of My First Language Frontend with LLVM Tutorial" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="tutorial/MyFirstLanguageFrontend/LangImpl01.html">1. Kaleidoscope: Kaleidoscope Introduction and the Lexer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tutorial/MyFirstLanguageFrontend/LangImpl02.html">2. Kaleidoscope: Implementing a Parser and AST</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tutorial/MyFirstLanguageFrontend/LangImpl03.html">3. Kaleidoscope: Code generation to LLVM IR</a></li>
@@ -246,20 +240,20 @@
 <li class="toctree-l2"><a class="reference internal" href="MyFirstTypoFix.html">MyFirstTypoFix</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="Reference.html">Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="Reference.html">Reference</a><input aria-label="Toggle navigation of Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="AIToolPolicy.html">LLVM AI Tool Use Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Atomics.html">LLVM Atomic Instructions and Concurrency Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BitCodeFormat.html">LLVM Bitcode File Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BlockFrequencyTerminology.html">LLVM Block Frequency Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BranchWeightMetadata.html">LLVM Branch Weight Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Bugpoint.html">LLVM bugpoint tool: design and usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CalleeTypeMetadata.html">Callee Type Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CallGraphSection.html">.llvm.callgraph Section Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CIBestPractices.html">LLVM CI Best Practices</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="CommandGuide/index.html">LLVM Command Guide</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of LLVM Command Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="CommandGuide/index.html">LLVM Command Guide</a><input aria-label="Toggle navigation of LLVM Command Guide" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/dsymutil.html">dsymutil - manipulate archived DWARF debug symbol files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llc.html">llc - LLVM static compiler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/lli.html">lli - directly execute programs from LLVM bitcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CommandGuide/llubi.html">llubi - LLVM UB-aware Interpreter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-as.html">llvm-as - LLVM assembler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-cgdata.html">llvm-cgdata - LLVM CodeGen Data Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-config.html">llvm-config - Print LLVM compilation options</a></li>
@@ -297,9 +291,9 @@
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-size.html">llvm-size - print size information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-strings.html">llvm-strings - print strings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-strip.html">llvm-strip - object stripping tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CommandGuide/bugpoint.html">bugpoint - automatic test case reduction tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-extract.html">llvm-extract - extract a function from an LLVM module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-bcanalyzer.html">llvm-bcanalyzer - LLVM bitcode analyzer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CommandGuide/llvm-reduce.html">llvm-reduce - LLVM automatic testcase reducer.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/FileCheck.html">FileCheck - Flexible pattern matching file verifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/tblgen.html">tblgen - Description to C++ Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CommandGuide/clang-tblgen.html">clang-tblgen - Description to C++ Code for Clang</a></li>
@@ -324,18 +318,18 @@
 <li class="toctree-l2"><a class="reference internal" href="Coroutines.html">Coroutines in LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DependenceGraphs/index.html">Dependence Graphs in LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ExceptionHandling.html">Exception Handling in LLVM</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="Extensions.html">LLVM Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of LLVM Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="Extensions.html">LLVM Extensions</a><input aria-label="Toggle navigation of LLVM Extensions" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="FaultMaps.html">FaultMaps and implicit checks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FuzzingLLVM.html">Fuzzing LLVM libraries and tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GarbageCollection.html">Garbage Collection with LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GetElementPtr.html">The Often Misunderstood GEP Instruction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="GlobalISel/index.html">Global Instruction Selection</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Global Instruction Selection</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="GlobalISel/index.html">Global Instruction Selection</a><input aria-label="Toggle navigation of Global Instruction Selection" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="GlobalISel/GMIR.html">Generic Machine IR</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GlobalISel/GenericOpcode.html">Generic Opcodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GlobalISel/MIRPatterns.html">MIR Patterns in TableGen</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="GlobalISel/Pipeline.html">Core Pipeline</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Core Pipeline</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="GlobalISel/Pipeline.html">Core Pipeline</a><input aria-label="Toggle navigation of Core Pipeline" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="GlobalISel/IRTranslator.html">IRTranslator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="GlobalISel/Legalizer.html">Legalizer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="GlobalISel/RegBankSelect.html">RegBankSelect</a></li>
@@ -363,7 +357,7 @@
 <li class="toctree-l2"><a class="reference internal" href="MIRLangRef.html">Machine IR (MIR) Format Reference Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OptBisect.html">Using -opt-bisect-limit to debug optimization errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PCSectionsMetadata.html">LLVM PC Sections Metadata</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="PDB/index.html">The PDB File Format</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of The PDB File Format</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="PDB/index.html">The PDB File Format</a><input aria-label="Toggle navigation of The PDB File Format" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="PDB/MsfFile.html">The MSF File Format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PDB/PdbStream.html">The PDB Info Stream (aka the PDB Stream)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PDB/TpiStream.html">The PDB TPI and IPI Streams</a></li>
@@ -393,9 +387,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Statepoints.html">Garbage Collection Safepoints in LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SymbolizerMarkupFormat.html">Symbolizer Markup Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SystemLibrary.html">System Library</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="TestingGuide.html">LLVM Testing Infrastructure Guide</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of LLVM Testing Infrastructure Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="TestingGuide.html">LLVM Testing Infrastructure Guide</a><input aria-label="Toggle navigation of LLVM Testing Infrastructure Guide" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="TestSuiteGuide.html">test-suite Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TestSuiteMakefileGuide.html">test-suite Makefile Guide (deprecated)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="TransformMetadata.html">Code Transformation Metadata</a></li>
@@ -407,14 +400,14 @@
 <li class="toctree-l2"><a class="reference internal" href="YamlIO.html">YAML I/O</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="UserGuides.html">User Guides</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of User Guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="UserGuides.html">User Guides</a><input aria-label="Toggle navigation of User Guides" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="AArch64SME.html">Support for AArch64 Scalable Matrix Extension in LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AddingConstrainedIntrinsics.html">How To Add A Constrained Floating-Point Intrinsic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AdminTasks.html">LLVM Admin Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AdvancedBuilds.html">Advanced Build Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AliasAnalysis.html">LLVM Alias Analysis Infrastructure</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="AMDGPUUsage.html">User Guide for AMDGPU Backend</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of User Guide for AMDGPU Backend</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX7.html">Syntax of GFX7 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Syntax of GFX7 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="AMDGPUUsage.html">User Guide for AMDGPU Backend</a><input aria-label="Toggle navigation of User Guide for AMDGPU Backend" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX7.html">Syntax of GFX7 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX7 Instructions" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx7_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx7_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx7_hwreg.html">hwreg</a></li>
@@ -509,7 +502,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx7_waitcnt.html">waitcnt</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX8.html">Syntax of GFX8 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Syntax of GFX8 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX8.html">Syntax of GFX8 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX8 Instructions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx8_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx8_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx8_hwreg.html">hwreg</a></li>
@@ -624,7 +617,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx8_waitcnt.html">waitcnt</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX9.html">Syntax of Core GFX9 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of Syntax of Core GFX9 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX9.html">Syntax of Core GFX9 Instructions</a><input aria-label="Toggle navigation of Syntax of Core GFX9 Instructions" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx9_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx9_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx9_hwreg.html">hwreg</a></li>
@@ -737,7 +730,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx9_waitcnt.html">waitcnt</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX900.html">Syntax of gfx900, gfx902, gfx909 and gfx90c Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of Syntax of gfx900, gfx902, gfx909 and gfx90c Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX900.html">Syntax of gfx900, gfx902, gfx909 and gfx90c Instructions</a><input aria-label="Toggle navigation of Syntax of gfx900, gfx902, gfx909 and gfx90c Instructions" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx900_fx_operand.html">FX Operand</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx900_m.html">m</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx900_src.html">src</a></li>
@@ -745,7 +738,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx900_vdst.html">vdst</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX904.html">Syntax of gfx904 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of Syntax of gfx904 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX904.html">Syntax of gfx904 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx904 Instructions" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx904_fx_operand.html">FX Operand</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx904_m.html">m</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx904_src.html">src</a></li>
@@ -753,7 +746,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx904_vdst.html">vdst</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX906.html">Syntax of gfx906 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of Syntax of gfx906 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX906.html">Syntax of gfx906 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx906 Instructions" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx906_fx_operand.html">FX Operand</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx906_m.html">m</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx906_m_1.html">m</a></li>
@@ -767,7 +760,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx906_vsrc.html">vsrc</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX908.html">Syntax of gfx908 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Syntax of gfx908 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX908.html">Syntax of gfx908 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx908 Instructions" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx908_fx_operand.html">FX Operand</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx908_m_28b494.html">m</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx908_m_c141fc.html">m</a></li>
@@ -799,7 +792,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx908_vsrc_f3d248.html">vsrc</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX90a.html">Syntax of gfx90a Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Syntax of gfx90a Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX90a.html">Syntax of gfx90a Instructions</a><input aria-label="Toggle navigation of Syntax of gfx90a Instructions" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx90a_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx90a_fx_operand.html">FX Operand</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx90a_hwreg.html">hwreg</a></li>
@@ -914,7 +907,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx90a_waitcnt.html">waitcnt</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX940.html">Syntax of gfx942 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of Syntax of gfx942 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX940.html">Syntax of gfx942 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx942 Instructions" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx940_dst_4f3f9a.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx940_dst_95761f.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx940_fx_operand.html">FX Operand</a></li>
@@ -1021,7 +1014,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx940_waitcnt.html">waitcnt</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX10.html">Syntax of GFX10 RDNA1 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of Syntax of GFX10 RDNA1 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX10.html">Syntax of GFX10 RDNA1 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX10 RDNA1 Instructions" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx10_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx10_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx10_fx_operand.html">FX Operand</a></li>
@@ -1133,7 +1126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx10_waitcnt_depctr.html">waitcnt_depctr</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1011.html">Syntax of gfx1011 and gfx1012 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of Syntax of gfx1011 and gfx1012 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1011.html">Syntax of gfx1011 and gfx1012 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx1011 and gfx1012 Instructions" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1011_src.html">src</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1011_src_1.html">src</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1011_src_2.html">src</a></li>
@@ -1143,7 +1136,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1011_vsrc.html">vsrc</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1013.html">Syntax of gfx1013 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of Syntax of gfx1013 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1013.html">Syntax of gfx1013 Instructions</a><input aria-label="Toggle navigation of Syntax of gfx1013 Instructions" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1013_srsrc_5dafbc.html">srsrc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1013_srsrc_cf7132.html">srsrc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1013_vaddr_a5639c.html">vaddr</a></li>
@@ -1152,7 +1145,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1013_vdst_eae4c8.html">vdst</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1030.html">Syntax of GFX10 RDNA2 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of Syntax of GFX10 RDNA2 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX1030.html">Syntax of GFX10 RDNA2 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX10 RDNA2 Instructions" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1030_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1030_dst.html">dst</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1030_fx_operand.html">FX Operand</a></li>
@@ -1258,7 +1251,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx1030_waitcnt_depctr.html">waitcnt_depctr</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX11.html">Syntax of GFX11 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of Syntax of GFX11 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX11.html">Syntax of GFX11 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX11 Instructions" class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx11_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx11_delay.html">delay</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx11_dst.html">dst</a></li>
@@ -1372,7 +1365,7 @@
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx11_waitcnt_depctr.html">waitcnt_depctr</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX12.html">Syntax of GFX12 Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Syntax of GFX12 Instructions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="AMDGPU/AMDGPUAsmGFX12.html">Syntax of GFX12 Instructions</a><input aria-label="Toggle navigation of Syntax of GFX12 Instructions" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx12_addr.html">addr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx12_attr.html">attr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="AMDGPU/gfx12_data0_56f215.html">data0</a></li>
@@ -1517,6 +1510,7 @@
 <li class="toctree-l3"><a class="reference internal" href="AMDGPUDwarfExtensionAllowLocationDescriptionOnTheDwarfExpressionStack/AMDGPUDwarfExtensionAllowLocationDescriptionOnTheDwarfExpressionStack.html#b-further-information">B. Further Information</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="AMDGPUAsyncOperations.html">AMDGPU Asynchronous Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Benchmarking.html">Benchmarking tips</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BigEndianNEON.html">Using ARM NEON instructions in big-endian mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BuildingADistribution.html">Building a Distribution of LLVM</a></li>
@@ -1530,27 +1524,27 @@
 <li class="toctree-l2"><a class="reference internal" href="CoverageMappingFormat.html">LLVM Code Coverage Mapping Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CycleTerminology.html">LLVM Cycle Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DebuggingJITedCode.html">Debugging JIT-ed Code</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="DirectXUsage.html">User Guide for the DirectX Target</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of User Guide for the DirectX Target</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXContainer.html">DirectX Container</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of DirectX Container</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="DirectXUsage.html">User Guide for the DirectX Target</a><input aria-label="Toggle navigation of User Guide for the DirectX Target" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXContainer.html">DirectX Container</a><input aria-label="Toggle navigation of DirectX Container" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXILArchitecture.html">Architecture and Design of DXIL Support in LLVM</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of Architecture and Design of DXIL Support in LLVM</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXILArchitecture.html">Architecture and Design of DXIL Support in LLVM</a><input aria-label="Toggle navigation of Architecture and Design of DXIL Support in LLVM" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="DirectX/DXILOpTableGenDesign.html">Specification of DXIL Operations using TableGen Representation</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXILResources.html">DXIL Resource Handling</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of DXIL Resource Handling</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/DXILResources.html">DXIL Resource Handling</a><input aria-label="Toggle navigation of DXIL Resource Handling" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/RootSignatures.html">Root Signatures</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of Root Signatures</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="DirectX/RootSignatures.html">Root Signatures</a><input aria-label="Toggle navigation of Root Signatures" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Docker.html">A guide to Dockerfiles for building LLVM</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="DTLTO.html">DTLTO</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of DTLTO</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="DTLTO.html">DTLTO</a><input aria-label="Toggle navigation of DTLTO" class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="FatLTO.html">FatLTO</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of FatLTO</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="FatLTO.html">FatLTO</a><input aria-label="Toggle navigation of FatLTO" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ExtendingLLVM.html">Extending LLVM: Adding instructions, intrinsics, types, etc.</a></li>
@@ -1582,7 +1576,7 @@
 <li class="toctree-l2"><a class="reference internal" href="MemProf.html">MemProf: Memory Profiling for LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MergeFunctions.html">MergeFunctions pass, how it works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MCJITDesignAndImplementation.html">MCJIT Design and Implementation</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="MisExpect.html">Misexpect</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Misexpect</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="MisExpect.html">Misexpect</a><input aria-label="Toggle navigation of Misexpect" class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ORCv2.html">ORC Design and Implementation</a></li>
@@ -1590,7 +1584,7 @@
 <li class="toctree-l2"><a class="reference internal" href="JITLink.html">JITLink and ORC’s ObjectLinkingLayer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NewPassManager.html">Using the New Pass Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NVPTXUsage.html">User Guide for NVPTX Back-end</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="Passes.html">LLVM’s Analysis and Transform Passes</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of LLVM’s Analysis and Transform Passes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Passes.html">LLVM’s Analysis and Transform Passes</a><input aria-label="Toggle navigation of LLVM’s Analysis and Transform Passes" class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="KernelInfo.html">KernelInfo</a></li>
 </ul>
 </li>
@@ -1604,11 +1598,11 @@
 <li class="toctree-l2"><a class="reference internal" href="RemoveDIsDebugInfo.html#how-to-update-existing-code">How to update existing code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RISCVUsage.html">User Guide for RISC-V Target</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RISCV/RISCVVectorExtension.html">RISC-V Vector Extension</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="SourceLevelDebugging.html">Source Level Debugging with LLVM</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of Source Level Debugging with LLVM</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="SourceLevelDebugging.html">Source Level Debugging with LLVM</a><input aria-label="Toggle navigation of Source Level Debugging with LLVM" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="AssignmentTracking.html">Debug Info Assignment Tracking</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="SPIRVUsage.html">User Guide for SPIR-V Target</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of User Guide for SPIR-V Target</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="SPIRVUsage.html">User Guide for SPIR-V Target</a><input aria-label="Toggle navigation of User Guide for SPIR-V Target" class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="SandboxIR.html">Sandbox IR: A transactional layer over LLVM IR</a></li>
@@ -1618,24 +1612,24 @@
 <li class="toctree-l2"><a class="reference internal" href="SandboxIR.html#users-of-sandbox-ir">Users of Sandbox IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="StackSafetyAnalysis.html">Stack Safety Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupportLibrary.html">Support Library</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="TableGen/index.html">TableGen Overview</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of TableGen Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="TableGen/index.html">TableGen Overview</a><input aria-label="Toggle navigation of TableGen Overview" class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="TableGen/BackEnds.html">TableGen BackEnds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TableGen/BackGuide.html"><span class="sectnum">1 </span>TableGen Backend Developer’s Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TableGen/ProgRef.html"><span class="sectnum">1 </span>TableGen Programmer’s Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="TableGenFundamentals.html">TableGen Fundamentals</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="Telemetry.html">Telemetry framework in LLVM</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Telemetry framework in LLVM</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="Telemetry.html">Telemetry framework in LLVM</a><input aria-label="Toggle navigation of Telemetry framework in LLVM" class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="Vectorizers.html">Auto-Vectorization in LLVM</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Auto-Vectorization in LLVM</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Vectorizers.html">Auto-Vectorization in LLVM</a><input aria-label="Toggle navigation of Auto-Vectorization in LLVM" class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="VectorizationPlan.html">Vectorization Plan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SandboxVectorizer.html">The Sandbox Vectorizer</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="WritingAnLLVMPass.html">Writing an LLVM Pass (legacy PM version)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WritingAnLLVMNewPMPass.html">Writing an LLVM Pass</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="WritingAnLLVMBackend.html">Writing an LLVM Backend</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><div class="visually-hidden">Toggle navigation of Writing an LLVM Backend</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="WritingAnLLVMBackend.html">Writing an LLVM Backend</a><input aria-label="Toggle navigation of Writing an LLVM Backend" class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="HowToUseInstrMappings.html">How To Use Instruction Mappings</a></li>
 </ul>
 </li>
@@ -1645,7 +1639,7 @@
 <li class="toctree-l1"><a class="reference internal" href="DiscourseMigrationGuide.html">Discourse Migration Guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="GettingInvolved.html">Getting Involved</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><div class="visually-hidden">Toggle navigation of Getting Involved</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GettingInvolved.html">Getting Involved</a><input aria-label="Toggle navigation of Getting Involved" class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Contributing.html">Contributing to LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeveloperPolicy.html">LLVM Developer Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CodeReview.html">LLVM Code-Review Policy and Practices</a></li>
@@ -1705,8 +1699,7 @@
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -1714,8 +1707,7 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
@@ -2560,7 +2552,9 @@ an optional <code class="docutils literal notranslate"><span class="pre">unnamed
 name, a (possibly empty) argument list (each with optional <a class="reference internal" href="#paramattrs"><span class="std std-ref">parameter
 attributes</span></a>), optional <a class="reference internal" href="#fnattrs"><span class="std std-ref">function attributes</span></a>,
 an optional address space, an optional section, an optional partition,
-an optional alignment, an optional <a class="reference internal" href="#langref-comdats"><span class="std std-ref">comdat</span></a>,
+an optional minimum alignment,
+an optional preferred alignment,
+an optional <a class="reference internal" href="#langref-comdats"><span class="std std-ref">comdat</span></a>,
 an optional <a class="reference internal" href="#gc"><span class="std std-ref">garbage collector name</span></a>, an optional <a class="reference internal" href="#prefixdata"><span class="std std-ref">prefix</span></a>,
 an optional <a class="reference internal" href="#prologuedata"><span class="std std-ref">prologue</span></a>,
 an optional <a class="reference internal" href="#personalityfn"><span class="std std-ref">personality</span></a>,
@@ -2572,8 +2566,8 @@ an opening curly brace, a list of basic blocks, and a closing curly brace.</p>
        &lt;ResultType&gt; @&lt;FunctionName&gt; ([argument list])
        [(unnamed_addr|local_unnamed_addr)] [AddrSpace] [fn Attrs]
        [section &quot;name&quot;] [partition &quot;name&quot;] [comdat [($name)]] [align N]
-       [gc] [prefix Constant] [prologue Constant] [personality Constant]
-       (!name !N)* { ... }
+       [prefalign(N)] [gc] [prefix Constant] [prologue Constant]
+       [personality Constant] (!name !N)* { ... }
 </pre></div>
 </div>
 <p>The argument list is a comma-separated sequence of arguments where each
@@ -2618,11 +2612,19 @@ predecessors, it also cannot have any <a class="reference internal" href="#i-phi
 <p>LLVM allows an explicit section to be specified for functions. If the
 target supports it, it will emit functions to the section specified.
 Additionally, the function can be placed in a COMDAT.</p>
-<p>An explicit alignment may be specified for a function. If not present,
-or if the alignment is set to zero, the alignment of the function is set
-by the target to whatever it feels convenient. If an explicit alignment
-is specified, the function is forced to have at least that much
-alignment. All alignments must be a power of 2.</p>
+<p>An explicit minimum alignment (<code class="docutils literal notranslate"><span class="pre">align</span></code>) may be specified for a
+function. If not present, or if the alignment is set to zero, the
+alignment of the function is set according to the preferred alignment
+rules described below. If an explicit minimum alignment is specified, the
+function is forced to have at least that much alignment. All alignments
+must be a power of 2.</p>
+<p>An explicit preferred alignment (<code class="docutils literal notranslate"><span class="pre">prefalign</span></code>) may also be specified for
+a function (definitions only, and must be a power of 2). If a function
+does not have a preferred alignment attribute, the preferred alignment
+is determined in a target-specific way. The preferred alignment, if
+provided, is treated as a hint; the final alignment of the function will
+generally be set to a value somewhere between the minimum alignment and
+the preferred alignment.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">unnamed_addr</span></code> attribute is given, the address is known to not
 be significant and two identical functions can be merged.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">local_unnamed_addr</span></code> attribute is given, the address is known to
@@ -3141,8 +3143,8 @@ a bitmask of 3 indicates the parameter may not be a NaN.</p>
 passed or returned instead.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id1988">
-<div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">The following invariants hold</span><a class="headerlink" href="#id1988" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1994">
+<div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">The following invariants hold</span><a class="headerlink" href="#id1994" title="Link to this code">¶</a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>     @llvm.is.fpclass(nofpclass(test_mask) %x, test_mask) =&gt; false
      @llvm.is.fpclass(nofpclass(test_mask) %x, ~test_mask) =&gt; true
      nofpclass(all) =&gt; poison
@@ -3160,9 +3162,9 @@ marked with <a class="reference internal" href="#denormal-fpenv"><span class="st
 indicating zero treatment of input denormals, it does not imply the
 value cannot be a denormal value which would compare equal to 0.</p>
 </div></blockquote>
-<div class="table-wrapper docutils container" id="id1989">
-<table class="docutils align-default" id="id1989">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Recognized test mask names</span><a class="headerlink" href="#id1989" title="Link to this table">¶</a></caption>
+<div class="table-wrapper docutils container" id="id1995">
+<table class="docutils align-default" id="id1995">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Recognized test mask names</span><a class="headerlink" href="#id1995" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>floating-point class</p></th>
@@ -3537,6 +3539,17 @@ zeroed.</p></li>
 <p>The first three options are mutually exclusive, and the remaining options
 describe more details of how the function behaves. The remaining options
 are invalid for “free”-type functions.</p>
+<p>Calls to functions annotated with <code class="docutils literal notranslate"><span class="pre">allockind</span></code> are subject to allocation
+elision: Calls to allocator functions can be removed, and the allocation
+served from a “virtual” allocator instead. Notably, this is allowed even if
+the allocator calls have side-effects. In other words, for each allocation
+there is a non-deterministic choice between calling the allocator as usual,
+or using a virtual, side-effect-free allocator instead.</p>
+<p>If multiple allocation functions operate on the same allocation,
+allocation elision is only allowed for pairs of “alloc” and “free” with the
+same <code class="docutils literal notranslate"><span class="pre">&quot;alloc-family&quot;</span></code> attribute. For this purpose, a “realloc” call may
+be decomposed into “alloc” and “free” operations, as long as at least one
+of them will be elided.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&quot;alloc-variant-zeroed&quot;=&quot;FUNCTION&quot;</span></code></dt><dd><p>This attribute indicates that another function is equivalent to an allocator function,
 but returns zeroed memory. The function must have “zeroed” allocation behavior,
@@ -4194,9 +4207,9 @@ specified range. <cite>min</cite> must be a power-of-two that is greater than 0.
 specified, <cite>max</cite> must be a power-of-two greater-than-or-equal to <cite>min</cite> or 0
 to signify an unbounded maximum. The syntax <cite>vscale_range(&lt;val&gt;)</cite> can be
 used to set both <cite>min</cite> and <cite>max</cite> to the same value. Functions that don’t
-include this attribute make no assumptions about the value of <cite>vscale</cite>.</p>
+include this attribute make no assumptions about the range of <cite>vscale</cite>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">&quot;nooutline&quot;</span></code></dt><dd><p>This attribute indicates that outlining passes should not modify the
+<dt><code class="docutils literal notranslate"><span class="pre">nooutline</span></code></dt><dd><p>This attribute indicates that outlining passes should not modify the
 function.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">nocreateundeforpoison</span></code></dt><dd><p>This attribute indicates that the result of the function (prior to
@@ -5416,9 +5429,9 @@ a <a class="reference internal" href="#poisonvalues"><span class="std std-ref">p
 +/-Inf. If an argument is +/-Inf, or the result would be +/-Inf, it
 produces a <a class="reference internal" href="#poisonvalues"><span class="std std-ref">poison value</span></a> instead.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">nsz</span></code></dt><dd><p>No Signed Zeros - Allow optimizations to treat the sign of a zero
-argument or zero result as insignificant. This does not imply that -0.0
-is poison and/or guaranteed to not exist in the operation.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">nsz</span></code></dt><dd><p>No Signed Zeros - Unless otherwise mentioned, the sign bit of 0.0 or -0.0
+input operands can be non-deterministically flipped. This does not imply
+that -0.0 is poison and/or guaranteed to not exist in the operation.</p>
 </dd>
 </dl>
 <p>Note: For <a class="reference internal" href="#i-phi"><span class="std std-ref">phi</span></a>, <a class="reference internal" href="#i-select"><span class="std std-ref">select</span></a>, and <a class="reference internal" href="#i-call"><span class="std std-ref">call</span></a>
@@ -5899,9 +5912,9 @@ elementtype may be any integer, floating-point, pointer type, or a sized
 target extension type that has the <code class="docutils literal notranslate"><span class="pre">CanBeVectorElement</span></code> property. Vectors
 of size zero are not allowed. For scalable vectors, the total number of
 elements is a constant multiple (called vscale) of the specified number
-of elements; vscale is a positive integer that is unknown at compile time
-and the same hardware-dependent constant for all scalable vectors at run
-time. The size of a specific scalable vector type is thus constant within
+of elements; vscale is a positive power-of-two integer that is unknown at
+compile time and the same hardware-dependent constant for all scalable vectors
+at run time. The size of a specific scalable vector type is thus constant within
 IR, even if the exact size in bytes cannot be determined until run time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
@@ -11840,6 +11853,8 @@ the returned object is initially dead.
 See <a class="reference internal" href="#int-lifestart"><span class="std std-ref">llvm.lifetime.start</span></a> and
 <a class="reference internal" href="#int-lifeend"><span class="std std-ref">llvm.lifetime.end</span></a> for the precise semantics of
 lifetime-manipulating intrinsics.</p>
+<p>If the element count is <code class="docutils literal notranslate"><span class="pre">undef</span></code> or <code class="docutils literal notranslate"><span class="pre">poison</span></code>, this instruction has undefined
+behavior.</p>
 </section>
 <section id="id210">
 <h5>Example:<a class="headerlink" href="#id210" title="Link to this heading">¶</a></h5>
@@ -15940,10 +15955,10 @@ behavior is undefined.</p>
 <p>This is an overloaded intrinsic. You can use <code class="docutils literal notranslate"><span class="pre">llvm.memset.inline</span></code> on any
 integer bit width and for different address spaces. Not all targets
 support all bit widths however.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">memset</span><span class="o">.</span><span class="n">inline</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">p0i8</span><span class="o">.</span><span class="n">i32</span><span class="p">(</span><span class="n">ptr</span> <span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i8</span> <span class="o">&lt;</span><span class="n">val</span><span class="o">&gt;</span><span class="p">,</span>
-                                             <span class="n">i32</span> <span class="o">&lt;</span><span class="nb">len</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i1</span> <span class="o">&lt;</span><span class="n">isvolatile</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">memset</span><span class="o">.</span><span class="n">inline</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">i64</span><span class="p">(</span><span class="n">ptr</span> <span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i8</span> <span class="o">&lt;</span><span class="n">val</span><span class="o">&gt;</span><span class="p">,</span>
-                                           <span class="n">i64</span> <span class="o">&lt;</span><span class="nb">len</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i1</span> <span class="o">&lt;</span><span class="n">isvolatile</span><span class="o">&gt;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">memset</span><span class="o">.</span><span class="n">inline</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">i32</span><span class="p">(</span><span class="n">ptr</span> <span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i8</span> <span class="o">&lt;</span><span class="n">val</span><span class="o">&gt;</span><span class="p">,</span>
+                                        <span class="n">i32</span> <span class="o">&lt;</span><span class="nb">len</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i1</span> <span class="o">&lt;</span><span class="n">isvolatile</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">memset</span><span class="o">.</span><span class="n">inline</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">i64</span><span class="p">(</span><span class="n">ptr</span> <span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i8</span> <span class="o">&lt;</span><span class="n">val</span><span class="o">&gt;</span><span class="p">,</span>
+                                        <span class="n">i64</span> <span class="o">&lt;</span><span class="nb">len</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">i1</span> <span class="o">&lt;</span><span class="n">isvolatile</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -28553,8 +28568,8 @@ vectors such as <code class="docutils literal notranslate"><span class="pre">&lt
 </section>
 <section id="id1912">
 <h5>Semantics:<a class="headerlink" href="#id1912" title="Link to this heading">¶</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">vscale</span></code> is a positive value that is constant throughout program
-execution, but is unknown at compile time.
+<p><code class="docutils literal notranslate"><span class="pre">vscale</span></code> is a positive power-of-two integer that is constant throughout
+program execution, but is unknown at compile time.
 If the result value does not fit in the result type, then the result is
 a <a class="reference internal" href="#poisonvalues"><span class="std std-ref">poison value</span></a>.</p>
 </section>
@@ -29207,6 +29222,67 @@ deactivation symbol represents a field identifier.</p>
 <p>This intrinsic is used to implement structure protection.</p>
 </section>
 </section>
+<section id="llvm-cond-loop-intrinsic">
+<h4>‘<code class="docutils literal notranslate"><span class="pre">llvm.cond.loop</span></code>’ Intrinsic<a class="headerlink" href="#llvm-cond-loop-intrinsic" title="Link to this heading">¶</a></h4>
+<section id="id1988">
+<h5>Syntax:<a class="headerlink" href="#id1988" title="Link to this heading">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">i1</span> <span class="n">pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1989">
+<h5>Overview:<a class="headerlink" href="#id1989" title="Link to this heading">¶</a></h5>
+<p>The ‘<code class="docutils literal notranslate"><span class="pre">llvm.cond.loop</span></code>’ intrinsic spins in an infinite loop if the
+given predicate <code class="docutils literal notranslate"><span class="pre">pred</span></code> is true, otherwise it does nothing.</p>
+</section>
+<section id="id1990">
+<h5>Arguments:<a class="headerlink" href="#id1990" title="Link to this heading">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">pred</span></code> is the predicate.</p>
+</section>
+<section id="id1991">
+<h5>Semantics:<a class="headerlink" href="#id1991" title="Link to this heading">¶</a></h5>
+<p>This intrinsic is semantically equivalent to a conditional branch
+conditioned on <code class="docutils literal notranslate"><span class="pre">pred</span></code> to a basic block consisting only of an
+unconditional branch to itself.</p>
+<p>Unlike such a branch, certain backends guarantee that this intrinsic
+will use specific instructions. This allows an interrupt handler or
+other introspection mechanism to straightforwardly detect whether
+the program is currently spinning in the infinite loop and possibly
+terminate the program if so. The intent is that this intrinsic may
+be used as a more efficient alternative to a conditional branch to
+a call to <code class="docutils literal notranslate"><span class="pre">llvm.trap</span></code> in circumstances where the loop detection
+is guaranteed to be present. This construct has been experimentally
+determined to be executed more efficiently (when the branch is not taken)
+than a conditional branch to a trap instruction on AMD and older Intel
+microarchitectures, and is also more code size efficient by avoiding the
+need to emit a trap instruction and possibly a long branch instruction.</p>
+<p>With the X86 backend, the infinite loop is guaranteed to
+consist of a short conditional branch instruction that branches to
+itself. Specifically, the first byte of the instruction will be between
+0x70 and 0x7F, and the second byte will be 0xFE.</p>
+<p>There are currently no guarantees about instructions used by other backends.</p>
+</section>
+</section>
+<section id="llvm-looptrap-intrinsic">
+<h4>‘<code class="docutils literal notranslate"><span class="pre">llvm.looptrap</span></code>’ Intrinsic<a class="headerlink" href="#llvm-looptrap-intrinsic" title="Link to this heading">¶</a></h4>
+<section id="id1992">
+<h5>Syntax:<a class="headerlink" href="#id1992" title="Link to this heading">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">declare</span> <span class="n">void</span> <span class="nd">@llvm</span><span class="o">.</span><span class="n">looptrap</span><span class="p">()</span> <span class="n">cold</span> <span class="n">noreturn</span> <span class="n">nounwind</span>
+</pre></div>
+</div>
+</section>
+<section id="id1993">
+<h5>Overview:<a class="headerlink" href="#id1993" title="Link to this heading">¶</a></h5>
+<p>The ‘<code class="docutils literal notranslate"><span class="pre">llvm.looptrap</span></code>’ intrinsic is equivalent to
+<code class="docutils literal notranslate"><span class="pre">llvm.cond.loop(true)</span></code>, but is also considered to be <code class="docutils literal notranslate"><span class="pre">noreturn</span></code>,
+which enables certain optimizations by allowing the optimizer to
+assume that a branch leading to a call to this intrinsic was not
+taken. A late optimization pass will convert this intrinsic to either
+<code class="docutils literal notranslate"><span class="pre">llvm.cond.loop(true)</span></code> or <code class="docutils literal notranslate"><span class="pre">llvm.cond.loop(pred)</span></code>, where <code class="docutils literal notranslate"><span class="pre">pred</span></code>
+is a predicate for a conditional branch leading to the intrinsic call,
+if possible.</p>
+</section>
+</section>
 </section>
 </section>
 </section>
@@ -29246,7 +29322,7 @@ deactivation symbol represents a field identifier.</p>
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-03-02</div>
+              Last updated on 2026-03-09</div>
           </div>
           <div class="right-details">
             
@@ -33054,6 +33130,18 @@ deactivation symbol represents a field identifier.</p>
 <li><a class="reference internal" href="#id1985">Overview:</a></li>
 <li><a class="reference internal" href="#id1986">Arguments:</a></li>
 <li><a class="reference internal" href="#id1987">Semantics:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#llvm-cond-loop-intrinsic">‘<code class="docutils literal notranslate"><span class="pre">llvm.cond.loop</span></code>’ Intrinsic</a><ul>
+<li><a class="reference internal" href="#id1988">Syntax:</a></li>
+<li><a class="reference internal" href="#id1989">Overview:</a></li>
+<li><a class="reference internal" href="#id1990">Arguments:</a></li>
+<li><a class="reference internal" href="#id1991">Semantics:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#llvm-looptrap-intrinsic">‘<code class="docutils literal notranslate"><span class="pre">llvm.looptrap</span></code>’ Intrinsic</a><ul>
+<li><a class="reference internal" href="#id1992">Syntax:</a></li>
+<li><a class="reference internal" href="#id1993">Overview:</a></li>
 </ul>
 </li>
 </ul>

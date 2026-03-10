@@ -460,14 +460,6 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--color-foreground-border) transparent;
 }
-.sidebar-scroll::-webkit-scrollbar, .toc-scroll::-webkit-scrollbar, article[role=main] ::-webkit-scrollbar {
-  width: 0.25rem;
-  height: 0.25rem;
-}
-.sidebar-scroll::-webkit-scrollbar-thumb, .toc-scroll::-webkit-scrollbar-thumb, article[role=main] ::-webkit-scrollbar-thumb {
-  background-color: var(--color-foreground-border);
-  border-radius: 0.125rem;
-}
 
 html, body {
   height: 100%;
@@ -1086,10 +1078,10 @@ dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.
   width: 4.25rem;
 }
 
-em.property {
+em.property, span.property {
   font-style: normal;
 }
-em.property:first-child {
+em.property:first-child, span.property:first-child {
   color: var(--color-api-keyword);
 }
 
