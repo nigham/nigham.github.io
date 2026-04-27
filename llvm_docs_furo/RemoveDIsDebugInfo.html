@@ -175,7 +175,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -1721,10 +1721,6 @@
 <li class="toctree-l2"><a class="reference internal" href="ResponseGuide.html">Response Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Remarks.html">Remarks</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Debug info migration: From intrinsics to records</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#great-what-do-i-need-to-do">Great, what do I need to do!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#c-api-changes">C-API changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-new-debug-record-model">The new “Debug Record” model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-update-existing-code">How to update existing code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RISCVUsage.html">User Guide for RISC-V Target</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RISCV/RISCVVectorExtension.html">RISC-V Vector Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RISCV/RISCVVCIX.html">Scheduling Information for RISC-V VCIX Instructions</a></li>
@@ -1736,10 +1732,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="SandboxIR.html">Sandbox IR: A transactional layer over LLVM IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SandboxIR.html#quick-start-notes">Quick Start Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SandboxIR.html#api">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SandboxIR.html#design">Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SandboxIR.html#users-of-sandbox-ir">Users of Sandbox IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="StackSafetyAnalysis.html">Stack Safety Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupportLibrary.html">Support Library</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="TableGen/index.html">TableGen Overview</a><input aria-label="Toggle navigation of TableGen Overview" class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -1836,7 +1828,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
@@ -1860,9 +1852,8 @@
 </pre></div>
 </div>
 <p>The debug records are not instructions, do not appear in the instruction list, and won’t appear in your optimisation passes unless you go digging for them deliberately.</p>
-</section>
 <section id="great-what-do-i-need-to-do">
-<h1>Great, what do I need to do!<a class="headerlink" href="#great-what-do-i-need-to-do" title="Link to this heading">¶</a></h1>
+<h2>Great, what do I need to do!<a class="headerlink" href="#great-what-do-i-need-to-do" title="Link to this heading">¶</a></h2>
 <p>We’ve largely completed the migration. The remaining rough edge is that going forwards, instructions must be inserted into basic blocks using iterators rather than instruction pointers. In almost all circumstances you can just call <code class="docutils literal notranslate"><span class="pre">getIterator</span></code> on an instruction pointer – however, if you call a function that returns the start of a basic block, such as:</p>
 <ol class="arabic simple">
 <li><p>BasicBlock::begin</p></li>
@@ -1871,13 +1862,13 @@
 </ol>
 <p>Then you must past that iterator into the insertion function without modification (the iterator carries a debug-info bit). That’s all! Read on for a more detailed explanation.</p>
 <section id="api-changes">
-<h2>API Changes<a class="headerlink" href="#api-changes" title="Link to this heading">¶</a></h2>
+<h3>API Changes<a class="headerlink" href="#api-changes" title="Link to this heading">¶</a></h3>
 <p>There are two significant changes to be aware of. Firstly, we’re adding a single bit of debug relevant data to the <code class="docutils literal notranslate"><span class="pre">BasicBlock::iterator</span></code> class (it’s so that we can determine whether ranges intend on including debug info at the beginning of a block or not). That means when writing passes that insert LLVM IR instructions, you need to identify positions with <code class="docutils literal notranslate"><span class="pre">BasicBlock::iterator</span></code> rather than just a bare <code class="docutils literal notranslate"><span class="pre">Instruction</span> <span class="pre">*</span></code>. Most of the time this means that after identifying where you intend on inserting something, you must also call <code class="docutils literal notranslate"><span class="pre">getIterator</span></code> on the instruction position – however when inserting at the start of a block you <em>must</em> use <code class="docutils literal notranslate"><span class="pre">getFirstInsertionPt</span></code>, <code class="docutils literal notranslate"><span class="pre">getFirstNonPHIIt</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span></code> and use that iterator to insert, rather than just fetching a pointer to the first instruction.</p>
 <p>The second matter is that if you transfer sequences of instructions from one place to another manually, i.e. repeatedly using <code class="docutils literal notranslate"><span class="pre">moveBefore</span></code> where you might have used <code class="docutils literal notranslate"><span class="pre">splice</span></code>, then you should instead use the method <code class="docutils literal notranslate"><span class="pre">moveBeforePreserving</span></code>. <code class="docutils literal notranslate"><span class="pre">moveBeforePreserving</span></code> will transfer debug info records with the instruction they’re attached to. This is something that happens automatically today – if you use <code class="docutils literal notranslate"><span class="pre">moveBefore</span></code> on every element of an instruction sequence, then debug intrinsics will be moved in the normal course of your code, but we lose this behaviour with non-instruction debug info.</p>
 <p>For a more in-depth overview of how to update existing code to support debug records, see <a class="reference internal" href="#how-to-update-existing-code">the guide below</a>.</p>
 </section>
 <section id="textual-ir-changes">
-<h2>Textual IR Changes<a class="headerlink" href="#textual-ir-changes" title="Link to this heading">¶</a></h2>
+<h3>Textual IR Changes<a class="headerlink" href="#textual-ir-changes" title="Link to this heading">¶</a></h3>
 <p>As we change from using debug intrinsics to debug records, any tools that depend on parsing IR produced by LLVM will need to handle the new format. For the most part, the difference between the printed form of a debug intrinsic call and a debug record is trivial:</p>
 <ol class="arabic simple">
 <li><p>An extra 2 spaces of indentation are added.</p></li>
@@ -1893,7 +1884,7 @@
 </pre></div>
 </div>
 <section id="test-updates">
-<h3>Test updates<a class="headerlink" href="#test-updates" title="Link to this heading">¶</a></h3>
+<h4>Test updates<a class="headerlink" href="#test-updates" title="Link to this heading">¶</a></h4>
 <p>Any tests downstream of the main LLVM repo that test the IR output of LLVM may break as a result of the change to using records. Updating an individual test to expect records instead of intrinsics should be trivial, given the update rules above. Updating many tests may be burdensome however; to update the lit tests in the main repository, the following steps were used:</p>
 <ol class="arabic">
 <li><p>Collect the list of failing lit tests into a single file, <code class="docutils literal notranslate"><span class="pre">failing-tests.txt</span></code>, separated by (and ending with) newlines.</p></li>
@@ -1983,7 +1974,7 @@ Failed: 5 (1.69%)
 </section>
 </section>
 <section id="c-api-changes">
-<h1>C-API changes<a class="headerlink" href="#c-api-changes" title="Link to this heading">¶</a></h1>
+<h2>C-API changes<a class="headerlink" href="#c-api-changes" title="Link to this heading">¶</a></h2>
 <p>Some new functions that have been added are temporary and will be deprecated in the future. The intention is that they’ll help downstream projects adapt during the transition period.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Deleted</span> <span class="n">functions</span>
 <span class="o">-----------------</span>
@@ -2034,10 +2025,10 @@ If you are trying to insert at the start of a block, or purposfully skip debug i
 </div>
 </section>
 <section id="the-new-debug-record-model">
-<h1>The new “Debug Record” model<a class="headerlink" href="#the-new-debug-record-model" title="Link to this heading">¶</a></h1>
+<h2>The new “Debug Record” model<a class="headerlink" href="#the-new-debug-record-model" title="Link to this heading">¶</a></h2>
 <p>Below is a brief overview of the new representation that replaces debug intrinsics; for an instructive guide on updating old code, see <a class="reference internal" href="#how-to-update-existing-code">here</a>.</p>
 <section id="what-exactly-have-you-replaced-debug-intrinsics-with">
-<h2>What exactly have you replaced debug intrinsics with?<a class="headerlink" href="#what-exactly-have-you-replaced-debug-intrinsics-with" title="Link to this heading">¶</a></h2>
+<h3>What exactly have you replaced debug intrinsics with?<a class="headerlink" href="#what-exactly-have-you-replaced-debug-intrinsics-with" title="Link to this heading">¶</a></h3>
 <p>We’re using a dedicated C++ class called <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> to store debug info, with a one-to-one relationship between each instance of a debug intrinsic and each <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> object in any LLVM IR program; these <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code>s are represented in the IR as non-instruction debug records, as described in the [Source Level Debugging](project:SourceLevelDebugging.rst#Debug Records) document. This class has a set of subclasses that store exactly the same information as is stored in debugging intrinsics. Each one also has almost entirely the same set of methods, that behave in the same way:</p>
 <p>https://llvm.org/docs/doxygen/classllvm_1_1DbgRecord.html
 https://llvm.org/docs/doxygen/classllvm_1_1DbgVariableRecord.html
@@ -2045,7 +2036,7 @@ https://llvm.org/docs/doxygen/classllvm_1_1DbgLabelRecord.html</p>
 <p>This allows you to treat a <code class="docutils literal notranslate"><span class="pre">DbgVariableRecord</span></code> as if it’s a <code class="docutils literal notranslate"><span class="pre">dbg.value</span></code>/<code class="docutils literal notranslate"><span class="pre">dbg.declare</span></code>/<code class="docutils literal notranslate"><span class="pre">dbg.assign</span></code> intrinsic most of the time, for example in generic (auto-param) lambdas, and the same for <code class="docutils literal notranslate"><span class="pre">DbgLabelRecord</span></code> and <code class="docutils literal notranslate"><span class="pre">dbg.label</span></code>s.</p>
 </section>
 <section id="how-do-these-dbgrecords-fit-into-the-instruction-stream">
-<h2>How do these <code class="docutils literal notranslate"><span class="pre">DbgRecords</span></code> fit into the instruction stream?<a class="headerlink" href="#how-do-these-dbgrecords-fit-into-the-instruction-stream" title="Link to this heading">¶</a></h2>
+<h3>How do these <code class="docutils literal notranslate"><span class="pre">DbgRecords</span></code> fit into the instruction stream?<a class="headerlink" href="#how-do-these-dbgrecords-fit-into-the-instruction-stream" title="Link to this heading">¶</a></h3>
 <p>Like so:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                 +---------------+          +---------------+
 ----------------&gt;|  Instruction  +---------&gt;|  Instruction  |
@@ -2072,7 +2063,7 @@ https://llvm.org/docs/doxygen/classllvm_1_1DbgLabelRecord.html</p>
 </section>
 </section>
 <section id="how-to-update-existing-code">
-<h1>How to update existing code<a class="headerlink" href="#how-to-update-existing-code" title="Link to this heading">¶</a></h1>
+<h2>How to update existing code<a class="headerlink" href="#how-to-update-existing-code" title="Link to this heading">¶</a></h2>
 <p>Any existing code that interacts with debug intrinsics in some way will need to be updated to interact with debug records in the same way. A few quick rules to keep in mind when updating code:</p>
 <ul>
 <li><p>Debug records will not be seen when iterating over instructions; to find the debug records that appear immediately before an instruction, you’ll need to iterate over <code class="docutils literal notranslate"><span class="pre">Instruction::getDbgRecordRange()</span></code>.</p></li>
@@ -2095,11 +2086,11 @@ https://llvm.org/docs/doxygen/classllvm_1_1DbgLabelRecord.html</p>
 </ul>
 <p>Below is a rough guide on how existing code that currently supports debug intrinsics can be updated to support debug records.</p>
 <section id="creating-debug-records">
-<h2>Creating debug records<a class="headerlink" href="#creating-debug-records" title="Link to this heading">¶</a></h2>
+<h3>Creating debug records<a class="headerlink" href="#creating-debug-records" title="Link to this heading">¶</a></h3>
 <p>Debug records will automatically be created by the <code class="docutils literal notranslate"><span class="pre">DIBuilder</span></code> class when the new format is enabled. As with instructions, it is also possible to call <code class="docutils literal notranslate"><span class="pre">DbgRecord::clone</span></code> to create an unattached copy of an existing record.</p>
 </section>
 <section id="skipping-debug-records-ignoring-debug-uses-of-values-stably-counting-instructions-etc">
-<h2>Skipping debug records, ignoring debug-uses of <code class="docutils literal notranslate"><span class="pre">Values</span></code>, stably counting instructions, etc.<a class="headerlink" href="#skipping-debug-records-ignoring-debug-uses-of-values-stably-counting-instructions-etc" title="Link to this heading">¶</a></h2>
+<h3>Skipping debug records, ignoring debug-uses of <code class="docutils literal notranslate"><span class="pre">Values</span></code>, stably counting instructions, etc.<a class="headerlink" href="#skipping-debug-records-ignoring-debug-uses-of-values-stably-counting-instructions-etc" title="Link to this heading">¶</a></h3>
 <p>This will all happen transparently without needing to think about it!</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">Instruction</span> <span class="o">&amp;</span><span class="n">I</span> <span class="p">:</span> <span class="n">BB</span><span class="p">)</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">Old</span><span class="p">:</span> <span class="n">Skips</span> <span class="n">debug</span> <span class="n">intrinsics</span>
@@ -2112,7 +2103,7 @@ https://llvm.org/docs/doxygen/classllvm_1_1DbgLabelRecord.html</p>
 </div>
 </section>
 <section id="finding-debug-records">
-<h2>Finding debug records<a class="headerlink" href="#finding-debug-records" title="Link to this heading">¶</a></h2>
+<h3>Finding debug records<a class="headerlink" href="#finding-debug-records" title="Link to this heading">¶</a></h3>
 <p>Utilities such as <code class="docutils literal notranslate"><span class="pre">findDbgUsers</span></code> and the like now have an optional argument that will return the set of <code class="docutils literal notranslate"><span class="pre">DbgVariableRecord</span></code> records that refer to a <code class="docutils literal notranslate"><span class="pre">Value</span></code>. You should be able to treat them the same as intrinsics.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Old</span><span class="p">:</span>
   <span class="n">SmallVector</span><span class="o">&lt;</span><span class="n">DbgVariableIntrinsic</span> <span class="o">*&gt;</span> <span class="n">DbgUsers</span><span class="p">;</span>
@@ -2135,7 +2126,7 @@ https://llvm.org/docs/doxygen/classllvm_1_1DbgLabelRecord.html</p>
 </div>
 </section>
 <section id="examining-debug-records-at-positions">
-<h2>Examining debug records at positions<a class="headerlink" href="#examining-debug-records-at-positions" title="Link to this heading">¶</a></h2>
+<h3>Examining debug records at positions<a class="headerlink" href="#examining-debug-records-at-positions" title="Link to this heading">¶</a></h3>
 <p>Call <code class="docutils literal notranslate"><span class="pre">Instruction::getDbgRecordRange()</span></code> to get the range of <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> objects that are attached to an instruction.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for (Instruction &amp;I : BB) {
   // Old: Uses a data member of a debug intrinsic, and then skips to the next
@@ -2180,7 +2171,7 @@ iterate over DbgVariableRecords, which are more commonly used.</p>
 </div>
 </section>
 <section id="processing-individual-debug-records">
-<h2>Processing individual debug records<a class="headerlink" href="#processing-individual-debug-records" title="Link to this heading">¶</a></h2>
+<h3>Processing individual debug records<a class="headerlink" href="#processing-individual-debug-records" title="Link to this heading">¶</a></h3>
 <p>In most cases, any code that operates on debug intrinsics can be extracted to a template function or auto lambda (if it is not already in one) that can be applied to both debug intrinsics and debug records - though keep in mind the main exception that <code class="docutils literal notranslate"><span class="pre">isa</span></code>/<code class="docutils literal notranslate"><span class="pre">cast</span></code>/<code class="docutils literal notranslate"><span class="pre">dyn_cast</span></code> do not apply to <code class="docutils literal notranslate"><span class="pre">DbgVariableRecord</span></code> types.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Old: Function that operates on debug variable intrinsics in a BasicBlock, and
 // collects llvm.dbg.declares.
@@ -2233,7 +2224,7 @@ void processDbgInfoInBlock(BasicBlock &amp;BB,
 </div>
 </section>
 <section id="moving-and-deleting-debug-records">
-<h2>Moving and deleting debug records<a class="headerlink" href="#moving-and-deleting-debug-records" title="Link to this heading">¶</a></h2>
+<h3>Moving and deleting debug records<a class="headerlink" href="#moving-and-deleting-debug-records" title="Link to this heading">¶</a></h3>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">DbgRecord::removeFromParent</span></code> to unlink a <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> from it’s marker, and then <code class="docutils literal notranslate"><span class="pre">BasicBlock::insertDbgRecordBefore</span></code> or <code class="docutils literal notranslate"><span class="pre">BasicBlock::insertDbgRecordAfter</span></code> to re-insert the <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> somewhere else. You cannot insert a <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code> at an arbitary point in a list of <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code>s (if you’re doing this with <code class="docutils literal notranslate"><span class="pre">llvm.dbg.value</span></code>s then it’s unlikely to be correct).</p>
 <p>Erase <code class="docutils literal notranslate"><span class="pre">DbgRecord</span></code>s by calling <code class="docutils literal notranslate"><span class="pre">eraseFromParent</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Old</span><span class="p">:</span> <span class="n">Move</span> <span class="n">a</span> <span class="n">debug</span> <span class="n">intrinsic</span> <span class="n">to</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">block</span><span class="p">,</span> <span class="ow">and</span> <span class="n">delete</span> <span class="nb">all</span> <span class="n">other</span> <span class="n">intrinsics</span> <span class="k">for</span> <span class="n">the</span> <span class="n">same</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">block</span><span class="o">.</span>
@@ -2263,7 +2254,7 @@ void processDbgInfoInBlock(BasicBlock &amp;BB,
 </div>
 </section>
 <section id="what-about-dangling-debug-records">
-<h2>What about dangling debug records?<a class="headerlink" href="#what-about-dangling-debug-records" title="Link to this heading">¶</a></h2>
+<h3>What about dangling debug records?<a class="headerlink" href="#what-about-dangling-debug-records" title="Link to this heading">¶</a></h3>
 <p>If you have a block like so:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    foo:
       %bar = add i32 %baz...
@@ -2275,8 +2266,9 @@ void processDbgInfoInBlock(BasicBlock &amp;BB,
 <p>This can technically lead to trouble in the vanishingly rare scenario where an optimisation pass erases a terminator and then decides to erase the whole block. (We recommend not doing that).</p>
 </section>
 <section id="anything-else">
-<h2>Anything else?<a class="headerlink" href="#anything-else" title="Link to this heading">¶</a></h2>
+<h3>Anything else?<a class="headerlink" href="#anything-else" title="Link to this heading">¶</a></h3>
 <p>The above guide does not comprehensively cover every pattern that could apply to debug intrinsics; as mentioned at the <a class="reference internal" href="#how-to-update-existing-code">start of the guide</a>, you can temporarily convert the target module from debug records to intrinsics as a stopgap measure. Most operations that can be performed on debug intrinsics have exact equivalents for debug records, but if you encounter any exceptions, reading the class docs (linked <a class="reference internal" href="#what-exactly-have-you-replaced-debug-intrinsics-with">here</a>) may give some insight, there may be examples in the existing codebase, and you can always ask for help on the <a class="reference external" href="https://discourse.llvm.org/tag/debuginfo">forums</a>.</p>
+</section>
 </section>
 </section>
 
@@ -2324,8 +2316,51 @@ void processDbgInfoInBlock(BasicBlock &amp;BB,
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Debug info migration: From intrinsics to records</a><ul>
+<li><a class="reference internal" href="#great-what-do-i-need-to-do">Great, what do I need to do!</a><ul>
+<li><a class="reference internal" href="#api-changes">API Changes</a></li>
+<li><a class="reference internal" href="#textual-ir-changes">Textual IR Changes</a><ul>
+<li><a class="reference internal" href="#test-updates">Test updates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#c-api-changes">C-API changes</a></li>
+<li><a class="reference internal" href="#the-new-debug-record-model">The new “Debug Record” model</a><ul>
+<li><a class="reference internal" href="#what-exactly-have-you-replaced-debug-intrinsics-with">What exactly have you replaced debug intrinsics with?</a></li>
+<li><a class="reference internal" href="#how-do-these-dbgrecords-fit-into-the-instruction-stream">How do these <code class="docutils literal notranslate"><span class="pre">DbgRecords</span></code> fit into the instruction stream?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-update-existing-code">How to update existing code</a><ul>
+<li><a class="reference internal" href="#creating-debug-records">Creating debug records</a></li>
+<li><a class="reference internal" href="#skipping-debug-records-ignoring-debug-uses-of-values-stably-counting-instructions-etc">Skipping debug records, ignoring debug-uses of <code class="docutils literal notranslate"><span class="pre">Values</span></code>, stably counting instructions, etc.</a></li>
+<li><a class="reference internal" href="#finding-debug-records">Finding debug records</a></li>
+<li><a class="reference internal" href="#examining-debug-records-at-positions">Examining debug records at positions</a></li>
+<li><a class="reference internal" href="#processing-individual-debug-records">Processing individual debug records</a></li>
+<li><a class="reference internal" href="#moving-and-deleting-debug-records">Moving and deleting debug records</a></li>
+<li><a class="reference internal" href="#what-about-dangling-debug-records">What about dangling debug records?</a></li>
+<li><a class="reference internal" href="#anything-else">Anything else?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
