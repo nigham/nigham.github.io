@@ -20,6 +20,7 @@ Several introductory papers and presentations.
 
 .. toctree::
    :hidden:
+   :maxdepth: 2
 
    FAQ
    Lexicon
