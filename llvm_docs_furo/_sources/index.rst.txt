@@ -60,6 +60,7 @@ Getting Started, How-tos, Developer Guides, and Tutorials.
 
 .. toctree::
    :hidden:
+   :maxdepth: 2
 
    GettingStartedTutorials
    Reference
@@ -85,6 +86,7 @@ LLVM welcomes contributions of all kinds. To learn more, see the following artic
 
 .. toctree::
    :hidden:
+   :maxdepth: 2
 
    GettingInvolved
    RFCProcess

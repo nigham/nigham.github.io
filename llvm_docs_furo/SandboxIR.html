@@ -175,7 +175,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -1736,10 +1736,6 @@
 </ul>
 </li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Sandbox IR: A transactional layer over LLVM IR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quick-start-notes">Quick Start Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#users-of-sandbox-ir">Users of Sandbox IR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="StackSafetyAnalysis.html">Stack Safety Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupportLibrary.html">Support Library</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="TableGen/index.html">TableGen Overview</a><input aria-label="Toggle navigation of TableGen Overview" class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -1836,7 +1832,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
@@ -1844,9 +1840,8 @@
           <section id="sandbox-ir-a-transactional-layer-over-llvm-ir">
 <h1>Sandbox IR: A transactional layer over LLVM IR<a class="headerlink" href="#sandbox-ir-a-transactional-layer-over-llvm-ir" title="Link to this heading">¶</a></h1>
 <p>Sandbox IR is an IR layer on top of LLVM IR that allows you to save/restore its state.</p>
-</section>
 <section id="quick-start-notes">
-<h1>Quick Start Notes<a class="headerlink" href="#quick-start-notes" title="Link to this heading">¶</a></h1>
+<h2>Quick Start Notes<a class="headerlink" href="#quick-start-notes" title="Link to this heading">¶</a></h2>
 <p>Within your LLVM pass:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 1. Include the necessary Sandbox IR header files.</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;llvm/SandboxIR/Context.h&quot;</span>
@@ -1878,7 +1873,7 @@
 </div>
 </section>
 <section id="api">
-<h1>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<h2>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h2>
 <p>The Sandbox IR API is designed to feel like LLVM, replicating many common API classes and functions to mirror the LLVM API.
 The class hierarchy is similar (but in the <code class="docutils literal notranslate"><span class="pre">llvm::sandboxir</span></code> namespace).
 For example here is a small part of it:</p>
@@ -1895,9 +1890,9 @@ For example here is a small part of it:</p>
 </div>
 </section>
 <section id="design">
-<h1>Design<a class="headerlink" href="#design" title="Link to this heading">¶</a></h1>
+<h2>Design<a class="headerlink" href="#design" title="Link to this heading">¶</a></h2>
 <section id="sandbox-ir-value-llvm-ir-value-mapping">
-<h2>Sandbox IR Value &lt;-&gt; LLVM IR Value Mapping<a class="headerlink" href="#sandbox-ir-value-llvm-ir-value-mapping" title="Link to this heading">¶</a></h2>
+<h3>Sandbox IR Value &lt;-&gt; LLVM IR Value Mapping<a class="headerlink" href="#sandbox-ir-value-llvm-ir-value-mapping" title="Link to this heading">¶</a></h3>
 <p>Each LLVM IR Value maps to a single Sandbox IR Value.
 The reverse is also true in most cases, except for Sandbox IR Instructions that map to more than one LLVM IR Instruction.
 Such instructions can be defined in extensions of the base Sandbox IR.</p>
@@ -1915,7 +1910,7 @@ This mapping is stored in <code class="docutils literal notranslate"><span class
 </ul>
 </section>
 <section id="sandbox-ir-is-write-through">
-<h2>Sandbox IR is Write-Through<a class="headerlink" href="#sandbox-ir-is-write-through" title="Link to this heading">¶</a></h2>
+<h3>Sandbox IR is Write-Through<a class="headerlink" href="#sandbox-ir-is-write-through" title="Link to this heading">¶</a></h3>
 <p>Sandbox IR is designed to rely on LLVM IR for its state.
 So any change made to Sandbox IR objects directly updates the corresponding LLVM IR.</p>
 <p>This has the following benefits:</p>
@@ -1934,7 +1929,7 @@ For example, for <code class="docutils literal notranslate"><span class="pre">sa
 </ul>
 </section>
 <section id="ir-change-tracking">
-<h2>IR Change Tracking<a class="headerlink" href="#ir-change-tracking" title="Link to this heading">¶</a></h2>
+<h3>IR Change Tracking<a class="headerlink" href="#ir-change-tracking" title="Link to this heading">¶</a></h3>
 <p>Sandbox IR’s state can be saved and restored.
 This is done with the help of the tracker component that is tightly coupled to the public Sandbox IR API functions.
 Please note that nested saves/restores are currently not supported.</p>
@@ -1950,10 +1945,11 @@ To start tracking again, the user needs to call <code class="docutils literal no
 </section>
 </section>
 <section id="users-of-sandbox-ir">
-<h1>Users of Sandbox IR<a class="headerlink" href="#users-of-sandbox-ir" title="Link to this heading">¶</a></h1>
+<h2>Users of Sandbox IR<a class="headerlink" href="#users-of-sandbox-ir" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="SandboxVectorizer.html"><span class="std std-doc">The Sandbox Vectorizer</span></a></p></li>
 </ul>
+</section>
 </section>
 
         </article>
@@ -2000,8 +1996,35 @@ To start tracking again, the user needs to call <code class="docutils literal no
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Sandbox IR: A transactional layer over LLVM IR</a><ul>
+<li><a class="reference internal" href="#quick-start-notes">Quick Start Notes</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#design">Design</a><ul>
+<li><a class="reference internal" href="#sandbox-ir-value-llvm-ir-value-mapping">Sandbox IR Value &lt;-&gt; LLVM IR Value Mapping</a></li>
+<li><a class="reference internal" href="#sandbox-ir-is-write-through">Sandbox IR is Write-Through</a></li>
+<li><a class="reference internal" href="#ir-change-tracking">IR Change Tracking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#users-of-sandbox-ir">Users of Sandbox IR</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

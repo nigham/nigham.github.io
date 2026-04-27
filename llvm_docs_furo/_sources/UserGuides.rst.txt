@@ -8,6 +8,7 @@ intermediate LLVM representation.
 
 .. toctree::
    :hidden:
+   :maxdepth: 1
 
    AArch64SME
    AddingConstrainedIntrinsics
