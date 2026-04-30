@@ -1687,14 +1687,7 @@
 <li class="toctree-l2"><a class="reference internal" href="InstCombineContributorGuide.html">InstCombine contributor guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="InstrProfileFormat.html">Instrumentation Profile Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html">Instruction referencing for debug info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html#problem-statement">Problem statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html#solution-instruction-referencing">Solution: instruction referencing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html#register-allocator-considerations">Register allocator considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html#livedebugvalues"><code class="docutils literal notranslate"><span class="pre">LiveDebugValues</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="InstrRefDebugInfo.html#required-target-support-and-transition-guide">Required target support and transition guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="KeyInstructionsDebugInfo.html">Key Instructions debug info in LLVM and Clang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyInstructionsDebugInfo.html#llvm">LLVM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyInstructionsDebugInfo.html#clang-and-other-front-ends">Clang and other front ends</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LFI.html">Lightweight Fault Isolation (LFI) in LLVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LinkTimeOptimization.html">LLVM Link Time Optimization: Design and Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LoopTerminology.html">LLVM Loop Terminology (and Canonical Forms)</a></li>
@@ -1776,10 +1769,6 @@
 <li class="toctree-l2"><a class="reference internal" href="ReleaseProcess.html">How To Validate a New Release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HowToAddABuilder.html">How To Add Your Build Configuration To LLVM Buildbot Infrastructure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReleaseNotes.html">LLVM 23.0.0git Release Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes.html#non-comprehensive-list-of-changes-in-this-release">Non-comprehensive list of changes in this release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes.html#external-open-source-projects-using-llvm-23-0-0git">External Open Source Projects Using LLVM 23.0.0git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes.html#additional-information">Additional Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MeetupGuidelines.html">How to start LLVM Social in your town</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Proposals/GitHubMove.html">Moving LLVM Projects to GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BugpointRedesign.html">Bugpoint Redesign</a></li>
@@ -2399,6 +2388,13 @@
 </li>
         </ul></li>
         <li>
+    --codesign
+
+        <ul>
+          <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-codesign">dsymutil command line option</a>
+</li>
+        </ul></li>
+        <li>
     --codeview
 
         <ul>
@@ -2610,6 +2606,13 @@
 </li>
         </ul></li>
         <li>
+    --data-access-perftrace
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-data-access-perftrace">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
     --data-in-code
 
         <ul>
@@ -2642,6 +2645,13 @@
 
         <ul>
           <li><a href="CommandGuide/llvm-dwarfdump.html#cmdoption-llvm-dwarfdump-debug-abbrev">llvm-dwarfdump command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --debug-binary
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-debug-binary">llvm-profgen command line option</a>
 </li>
         </ul></li>
         <li>
@@ -3239,6 +3249,13 @@
 </li>
         </ul></li>
         <li>
+    --embed-resource
+
+        <ul>
+          <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-embed-resource">dsymutil command line option</a>
+</li>
+        </ul></li>
+        <li>
     --enable-deterministic-archives
 
         <ul>
@@ -3294,6 +3311,13 @@
 
         <ul>
           <li><a href="CommandGuide/llvm-dwarfdump.html#cmdoption-llvm-dwarfdump-error-display">llvm-dwarfdump command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --etm
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-etm">llvm-profgen command line option</a>
 </li>
         </ul></li>
         <li>
@@ -4162,6 +4186,13 @@
 </li>
         </ul></li>
         <li>
+    --llvm-sample-profile
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-llvm-sample-profile">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
     --llvm_objcopy_path
 
         <ul>
@@ -4910,7 +4941,7 @@
 </li>
           <li><a href="CommandGuide/llvm-profdata.html#cmdoption-llvm-profdata-show-output">llvm-profdata-show command line option</a>
 </li>
-          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-output">llvm-profgen command line option</a>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-0">llvm-profgen command line option</a>, <a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-output">[1]</a>
 </li>
         </ul></li>
         <li>
@@ -5044,6 +5075,13 @@
 </li>
         </ul></li>
         <li>
+    --pd
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfdata">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
     --per-test-coverage
 
         <ul>
@@ -5051,10 +5089,24 @@
 </li>
         </ul></li>
         <li>
+    --perfdata
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfdata">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
     --perfscript
 
         <ul>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfscript">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --pid
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-pid">llvm-profgen command line option</a>
 </li>
         </ul></li>
         <li>
@@ -6323,6 +6375,8 @@
           <li><a href="CommandGuide/llvm-objcopy.html#cmdoption-llvm-objcopy-strip-symbols">llvm-objcopy command line option</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     --strip-underscore
 
@@ -6339,8 +6393,6 @@
           <li><a href="CommandGuide/llvm-strip.html#cmdoption-llvm-strip-strip-unneeded">llvm-strip command line option</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     --strip-unneeded-symbol
 
@@ -6452,6 +6504,13 @@
           <li><a href="CommandGuide/llvm-ifs.html#cmdoption-llvm-ifs-target">llvm-ifs command line option</a>
 </li>
           <li><a href="CommandGuide/llvm-objcopy.html#cmdoption-llvm-objcopy-target">llvm-objcopy command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --target-triple
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-target-triple">llvm-profgen command line option</a>
 </li>
         </ul></li>
         <li>
@@ -6608,6 +6667,13 @@
 </li>
         </ul></li>
         <li>
+    --unsymbolized-profile
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-unsymbolized-profile">llvm-profgen command line option</a>
+</li>
+        </ul></li>
+        <li>
     --unwind
 
         <ul>
@@ -6621,6 +6687,13 @@
 
         <ul>
           <li><a href="CommandGuide/llvm-objdump.html#cmdoption-llvm-objdump-u">llvm-objdump command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --up
+
+        <ul>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-unsymbolized-profile">llvm-profgen command line option</a>
 </li>
         </ul></li>
         <li>
@@ -10778,9 +10851,13 @@
 </li>
           <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-build-variant-suffix">--build-variant-suffix</a>
 </li>
+          <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-codesign">--codesign</a>
+</li>
           <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-disallow">--disallow</a>
 </li>
           <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-dump-debug-map">--dump-debug-map</a>
+</li>
+          <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-embed-resource">--embed-resource</a>
 </li>
           <li><a href="CommandGuide/dsymutil.html#cmdoption-dsymutil-fat64">--fat64</a>
 </li>
@@ -13353,15 +13430,35 @@
         <ul>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-binary">--binary</a>
 </li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-data-access-perftrace">--data-access-perftrace</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-debug-binary">--debug-binary</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-etm">--etm</a>
+</li>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-format">--format</a>
 </li>
-          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-output">--output</a>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-llvm-sample-profile">--llvm-sample-profile</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-0">--output</a>, <a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-output">[1]</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfdata">--pd</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfdata">--perfdata</a>
 </li>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-perfscript">--perfscript</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-pid">--pid</a>
 </li>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-show-disassembly">--show-disassembly</a>
 </li>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-show-mmap-events">--show-mmap-events</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-target-triple">--target-triple</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-unsymbolized-profile">--unsymbolized-profile</a>
+</li>
+          <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-unsymbolized-profile">--up</a>
 </li>
           <li><a href="CommandGuide/llvm-profgen.html#cmdoption-llvm-profgen-x86-asm-syntax">--x86-asm-syntax</a>
 </li>
@@ -14722,7 +14819,7 @@
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-04-27</div>
+              Last updated on 2026-04-29</div>
           </div>
           <div class="right-details">
             
